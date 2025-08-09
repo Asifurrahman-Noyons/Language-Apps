@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Hero - Learn English</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444'
+                    },
+                    animation: {
+                        'slide-in-right': 'slideInRight 0.3s ease-out',
+                        'slide-in-left': 'slideInLeft 0.3s ease-out',
+                        'slide-out-left': 'slideOutLeft 0.3s ease-out',
+                        'slide-out-right': 'slideOutRight 0.3s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'bounce-in': 'bounceIn 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.3s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom animations for smooth page transitions */
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-100%); opacity: 0; }
+        }
+        
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Hide scrollbar for horizontal scroll */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Smooth transitions */
+        .page-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Active navigation item */
+        .nav-item-active {
+            color: #6366f1;
+        }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .card-hover:active {
+            transform: translateY(-2px);
+        }
+        
+        /* Gradient backgrounds for cards */
+        .gradient-grammar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-vocabulary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gradient-ielts-prep {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .gradient-ielts-mock {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .gradient-orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .gradient-purple {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .gradient-blue {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-green {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    
+    <!-- Main App Container -->
+    <div class="max-w-md mx-auto bg-white min-h-screen relative overflow-hidden">
+        
+        <!-- Page Container with Animation Support -->
+        <div id="pageContainer" class="relative w-full h-full">
+            
+            <!-- HOME SECTION -->
+            <div id="homeSection" class="page-section absolute inset-0 bg-white">
+                <!-- Header with Greeting -->
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 px-6 pt-12 pb-8 rounded-b-3xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <p class="text-white/80 text-sm">Good morning! 👋</p>
+                            <h1 class="text-white text-xl font-bold">Hi English Learner</h1>
+                            <p class="text-white/80 text-sm">Let's improve your English today</p>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-white text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Categories Section -->
+                <div class="px-6 py-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-gray-800 text-lg font-semibold">Categories</h2>
+                        <button class="text-indigo-500 text-sm font-medium">See all</button>
+                    </div>
+                    
+                    <!-- Categories Grid -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="category-card gradient-grammar card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('grammar')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-book text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Grammar</h3>
+                            <p class="text-sm text-white/80">Learn English grammar rules</p>
+                        </div>
+                        
+                        <div class="category-card gradient-vocabulary card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('vocabulary')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-language text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Vocabulary</h3>
+                            <p class="text-sm text-white/80">Expand your word knowledge</p>
+                        </div>
+                        
+                        <div class="category-card gradient-ielts-prep card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('ielts-prep')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-graduation-cap text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">IELTS Prep</h3>
+                            <p class="text-sm text-white/80">Prepare for IELTS exam</p>
+                        </div>
+                        
+                        <div class="category-card gradient-ielts-mock card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('ielts-mock')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-clipboard-check text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">IELTS Mock</h3>
+                            <p class="text-sm text-white/80">Practice with mock tests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TASK SECTION -->
+            <div id="taskSection" class="page-section absolute inset-0 bg-white hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-pink-500 to-orange-500 px-6 pt-12 pb-8 rounded-b-3xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <p class="text-white/80 text-sm">Daily Practice 📝</p>
+                            <h1 class="text-white text-xl font-bold">Your Tasks</h1>
+                            <p class="text-white/80 text-sm">Complete your daily learning goals</p>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-tasks text-white text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Task Categories -->
+                <div class="px-6 py-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-gray-800 text-lg font-semibold">Practice Areas</h2>
+                        <span class="text-pink-500 text-sm font-medium">3/4 completed</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="category-card gradient-blue card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('speaking-practice')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-microphone text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Speaking</h3>
+                            <p class="text-sm text-white/80">Practice pronunciation</p>
+                        </div>
+                        
+                        <div class="category-card gradient-green card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('listening-practice')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-headphones text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Listening</h3>
+                            <p class="text-sm text-white/80">Improve listening skills</p>
+                        </div>
+                        
+                        <div class="category-card gradient-orange card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('reading-practice')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-book-open text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Reading</h3>
+                            <p class="text-sm text-white/80">Enhance reading speed</p>
+                        </div>
+                        
+                        <div class="category-card gradient-purple card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('writing-practice')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-pen text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Writing</h3>
+                            <p class="text-sm text-white/80">Improve writing skills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NOTE SECTION -->
+            <div id="noteSection" class="page-section absolute inset-0 bg-white hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 pt-12 pb-8 rounded-b-3xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <p class="text-white/80 text-sm">Study Notes 📚</p>
+                            <h1 class="text-white text-xl font-bold">Your Notes</h1>
+                            <p class="text-white/80 text-sm">Review and organize your learning</p>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-sticky-note text-white text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Note Categories -->
+                <div class="px-6 py-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-gray-800 text-lg font-semibold">Study Materials</h2>
+                        <button class="text-cyan-500 text-sm font-medium">Add new</button>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="category-card gradient-grammar card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('grammar-notes')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-file-alt text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Grammar Notes</h3>
+                            <p class="text-sm text-white/80">Your grammar references</p>
+                        </div>
+                        
+                        <div class="category-card gradient-vocabulary card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('vocab-notes')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-bookmark text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Vocab Notes</h3>
+                            <p class="text-sm text-white/80">Saved vocabulary words</p>
+                        </div>
+                        
+                        <div class="category-card gradient-ielts-prep card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('exam-notes')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-graduation-cap text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Exam Notes</h3>
+                            <p class="text-sm text-white/80">IELTS preparation notes</p>
+                        </div>
+                        
+                        <div class="category-card gradient-ielts-mock card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('flashcards')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-clone text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Flashcards</h3>
+                            <p class="text-sm text-white/80">Quick review cards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ABOUT SECTION -->
+            <div id="aboutSection" class="page-section absolute inset-0 bg-white hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 px-6 pt-12 pb-8 rounded-b-3xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <p class="text-white/80 text-sm">Learn More ℹ️</p>
+                            <h1 class="text-white text-xl font-bold">About App</h1>
+                            <p class="text-white/80 text-sm">App info and settings</p>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-info-circle text-white text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- About Categories -->
+                <div class="px-6 py-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-gray-800 text-lg font-semibold">App Information</h2>
+                        <span class="text-green-500 text-sm font-medium">v1.0.0</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="category-card gradient-blue card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('app-features')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-star text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Features</h3>
+                            <p class="text-sm text-white/80">Explore app capabilities</p>
+                        </div>
+                        
+                        <div class="category-card gradient-orange card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('help-support')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-question-circle text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Help</h3>
+                            <p class="text-sm text-white/80">Get help and support</p>
+                        </div>
+                        
+                        <div class="category-card gradient-purple card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('settings')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-cog text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">Settings</h3>
+                            <p class="text-sm text-white/80">Customize your experience</p>
+                        </div>
+                        
+                        <div class="category-card gradient-green card-hover rounded-2xl p-4 text-white cursor-pointer" onclick="openCategory('about-us')">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-3">
+                                <i class="fas fa-heart text-lg"></i>
+                            </div>
+                            <h3 class="font-semibold mb-1">About Us</h3>
+                            <p class="text-sm text-white/80">Meet the development team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CATEGORY DETAIL PAGE -->
+            <div id="categoryDetail" class="page-section absolute inset-0 bg-white hidden">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+            
+        </div>
+        
+        <!-- Bottom Navigation Bar -->
+        <div class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-200 px-6 py-3">
+            <div class="flex justify-around">
+                <!-- Home Tab -->
+                <button class="nav-item nav-item-active flex flex-col items-center space-y-1 px-3 py-2" 
+                        onclick="switchSection('home')" data-section="home">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="text-xs font-medium">Home</span>
+                </button>
+                
+                <!-- Task Tab -->
+                <button class="nav-item flex flex-col items-center space-y-1 px-3 py-2 text-gray-400" 
+                        onclick="switchSection('task')" data-section="task">
+                    <i class="fas fa-tasks text-lg"></i>
+                    <span class="text-xs font-medium">Task</span>
+                </button>
+                
+                <!-- Note Tab -->
+                <button class="nav-item flex flex-col items-center space-y-1 px-3 py-2 text-gray-400" 
+                        onclick="switchSection('note')" data-section="note">
+                    <i class="fas fa-sticky-note text-lg"></i>
+                    <span class="text-xs font-medium">Note</span>
+                </button>
+                
+                <!-- About Tab -->
+                <button class="nav-item flex flex-col items-center space-y-1 px-3 py-2 text-gray-400" 
+                        onclick="switchSection('about')" data-section="about">
+                    <i class="fas fa-info-circle text-lg"></i>
+                    <span class="text-xs font-medium">About</span>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // =================================================================================
+        // ENGLISH HERO APP JAVASCRIPT
+        // Main application logic for navigation, animations, and category management
+        // =================================================================================
+
+        // Global variables for tracking current state
+        let currentSection = 'home';
+        let currentCategory = null;
+        let animationInProgress = false;
+
+        // =================================================================================
+        // NAVIGATION SYSTEM
+        // Handles smooth transitions between main app sections (Home, Task, Note, About)
+        // =================================================================================
+
+        /**
+         * Switches between main app sections with smooth slide animation
+         * @param {string} sectionName - Name of the section to switch to
+         */
+        function switchSection(sectionName) {
+            // Prevent multiple animations at once
+            if (animationInProgress || currentSection === sectionName) return;
+            
+            animationInProgress = true;
+            
+            const currentSectionEl = document.getElementById(currentSection + 'Section');
+            const newSectionEl = document.getElementById(sectionName + 'Section');
+            
+            // Determine slide direction based on section order
+            const sections = ['home', 'task', 'note', 'about'];
+            const currentIndex = sections.indexOf(currentSection);
+            const newIndex = sections.indexOf(sectionName);
+            const slideRight = newIndex > currentIndex;
+            
+            // Apply exit animation to current section
+            currentSectionEl.classList.add(slideRight ? 'animate-slide-out-left' : 'animate-slide-out-right');
+            
+            // Show new section and apply entrance animation
+            setTimeout(() => {
+                currentSectionEl.classList.add('hidden');
+                currentSectionEl.classList.remove('animate-slide-out-left', 'animate-slide-out-right');
+                
+                newSectionEl.classList.remove('hidden');
+                newSectionEl.classList.add(slideRight ? 'animate-slide-in-right' : 'animate-slide-in-left');
+                
+                // Update navigation state
+                updateNavigationState(sectionName);
+                currentSection = sectionName;
+                
+                // Clean up animation classes
+                setTimeout(() => {
+                    newSectionEl.classList.remove('animate-slide-in-right', 'animate-slide-in-left');
+                    animationInProgress = false;
+                }, 300);
+            }, 150);
+        }
+
+        /**
+         * Updates the visual state of navigation bar items
+         * @param {string} activeSection - The section that should appear active
+         */
+        function updateNavigationState(activeSection) {
+            // Remove active state from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('nav-item-active');
+                item.classList.add('text-gray-400');
+            });
+            
+            // Add active state to current section
+            const activeItem = document.querySelector(`[data-section="${activeSection}"]`);
+            if (activeItem) {
+                activeItem.classList.add('nav-item-active');
+                activeItem.classList.remove('text-gray-400');
+            }
+        }
+
+        // =================================================================================
+        // CATEGORY SYSTEM
+        // Handles category card clicks and loads detailed content for each category
+        // =================================================================================
+
+        /**
+         * Opens a detailed view for a specific category with content
+         * @param {string} categoryName - Name of the category to open
+         */
+        function openCategory(categoryName) {
+            currentCategory = categoryName;
+            const categoryDetail = document.getElementById('categoryDetail');
+            const currentSectionEl = document.getElementById(currentSection + 'Section');
+            
+            // Generate category content based on category name
+            const categoryContent = generateCategoryContent(categoryName);
+            categoryDetail.innerHTML = categoryContent;
+            
+            // Animate transition to category detail
+            currentSectionEl.classList.add('animate-slide-out-left');
+            
+            setTimeout(() => {
+                currentSectionEl.classList.add('hidden');
+                categoryDetail.classList.remove('hidden');
+                categoryDetail.classList.add('animate-slide-in-right');
+                
+                setTimeout(() => {
+                    currentSectionEl.classList.remove('animate-slide-out-left');
+                    categoryDetail.classList.remove('animate-slide-in-right');
+                }, 300);
+            }, 150);
+        }
+
+        /**
+         * Returns to the previous section from category detail view
+         */
+        function backToSection() {
+            const categoryDetail = document.getElementById('categoryDetail');
+            const targetSectionEl = document.getElementById(currentSection + 'Section');
+            
+            // Animate back transition
+            categoryDetail.classList.add('animate-slide-out-right');
+            
+            setTimeout(() => {
+                categoryDetail.classList.add('hidden');
+                targetSectionEl.classList.remove('hidden');
+                targetSectionEl.classList.add('animate-slide-in-left');
+                
+                setTimeout(() => {
+                    categoryDetail.classList.remove('animate-slide-out-right');
+                    targetSectionEl.classList.remove('animate-slide-in-left');
+                }, 300);
+            }, 150);
+            
+            currentCategory = null;
+        }
+
+        // =================================================================================
+        // CONTENT GENERATION SYSTEM
+        // Dynamically generates content for each category based on its type
+        // =================================================================================
+
+        /**
+         * Generates detailed content for each category type
+         * @param {string} categoryName - Name of the category
+         * @returns {string} HTML content for the category
+         */
+        function generateCategoryContent(categoryName) {
+            const categoryData = getCategoryData(categoryName);
+            
+            return `
+                <!-- Category Detail Header -->
+                <div class="${categoryData.headerClass} px-6 pt-12 pb-8 rounded-b-3xl">
+                    <div class="flex items-center mb-6">
+                        <button onclick="backToSection()" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-arrow-left text-white text-lg"></i>
+                        </button>
+                        <div>
+                            <h1 class="text-white text-xl font-bold">${categoryData.title}</h1>
+                            <p class="text-white/80 text-sm">${categoryData.subtitle}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Content -->
+                <div class="px-6 py-6 pb-24">
+                    ${categoryData.content}
+                </div>
+            `;
+        }
+
+        /**
+         * Returns category-specific data including content and styling
+         * @param {string} categoryName - Name of the category
+         * @returns {object} Category data object
+         */
+        function getCategoryData(categoryName) {
+            const categoryMap = {
+                'grammar': {
+                    title: 'Grammar Lessons',
+                    subtitle: 'Master English grammar rules',
+                    headerClass: 'bg-gradient-to-r from-indigo-600 to-purple-700',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Present Tenses</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn about present simple, continuous, and perfect tenses</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">5 lessons</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Past Tenses</h3>
+                                <p class="text-gray-600 text-sm mb-3">Master past simple, continuous, and perfect forms</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">4 lessons</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Future Tenses</h3>
+                                <p class="text-gray-600 text-sm mb-3">Understand will, going to, and future perfect</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">3 lessons</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Modal Verbs</h3>
+                                <p class="text-gray-600 text-sm mb-3">Can, could, should, must, might, and more</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">6 lessons</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'vocabulary': {
+                    title: 'Vocabulary Builder',
+                    subtitle: 'Expand your English vocabulary',
+                    headerClass: 'bg-gradient-to-r from-pink-500 to-rose-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Daily Words</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn 10 new words every day with examples</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded-full">Today's batch</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Academic Words</h3>
+                                <p class="text-gray-600 text-sm mb-3">Essential vocabulary for academic writing</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded-full">500+ words</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Business English</h3>
+                                <p class="text-gray-600 text-sm mb-3">Professional vocabulary for workplace</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded-full">300+ words</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Phrasal Verbs</h3>
+                                <p class="text-gray-600 text-sm mb-3">Common phrasal verbs with meanings</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded-full">150+ verbs</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'ielts-prep': {
+                    title: 'IELTS Preparation',
+                    subtitle: 'Get ready for your IELTS exam',
+                    headerClass: 'bg-gradient-to-r from-cyan-500 to-blue-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Reading Skills</h3>
+                                <p class="text-gray-600 text-sm mb-3">Strategies for IELTS reading section</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-cyan-100 text-cyan-600 px-2 py-1 rounded-full">8 strategies</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Writing Tasks</h3>
+                                <p class="text-gray-600 text-sm mb-3">Task 1 and Task 2 writing preparation</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-cyan-100 text-cyan-600 px-2 py-1 rounded-full">12 examples</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Listening Practice</h3>
+                                <p class="text-gray-600 text-sm mb-3">Audio exercises with transcripts</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-cyan-100 text-cyan-600 px-2 py-1 rounded-full">20 audios</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Speaking Topics</h3>
+                                <p class="text-gray-600 text-sm mb-3">Common IELTS speaking questions</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-cyan-100 text-cyan-600 px-2 py-1 rounded-full">50+ topics</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'ielts-mock': {
+                    title: 'IELTS Mock Tests',
+                    subtitle: 'Practice with full-length tests',
+                    headerClass: 'bg-gradient-to-r from-green-500 to-emerald-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Academic Test 1</h3>
+                                <p class="text-gray-600 text-sm mb-3">Complete 3-hour IELTS Academic test</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">Not started</span>
+                                    <i class="fas fa-play-circle text-green-500 text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">General Test 1</h3>
+                                <p class="text-gray-600 text-sm mb-3">Full IELTS General Training test</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">Completed</span>
+                                    <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Reading Only</h3>
+                                <p class="text-gray-600 text-sm mb-3">Practice just the reading section</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">60 minutes</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Listening Only</h3>
+                                <p class="text-gray-600 text-sm mb-3">Focused listening test practice</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">30 minutes</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'speaking-practice': {
+                    title: 'Speaking Practice',
+                    subtitle: 'Improve your pronunciation',
+                    headerClass: 'bg-gradient-to-r from-blue-600 to-indigo-600',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Pronunciation Drills</h3>
+                                <p class="text-gray-600 text-sm mb-3">Practice difficult sounds and words</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">40 exercises</span>
+                                    <i class="fas fa-microphone text-blue-500"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Conversation Starters</h3>
+                                <p class="text-gray-600 text-sm mb-3">Common topics for daily conversation</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">25 topics</span>
+                                    <i class="fas fa-comments text-blue-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'listening-practice': {
+                    title: 'Listening Practice',
+                    subtitle: 'Enhance your listening skills',
+                    headerClass: 'bg-gradient-to-r from-green-600 to-teal-600',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">News Listening</h3>
+                                <p class="text-gray-600 text-sm mb-3">Listen to BBC and CNN news clips</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">15 clips</span>
+                                    <i class="fas fa-headphones text-green-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'reading-practice': {
+                    title: 'Reading Practice',
+                    subtitle: 'Boost your reading speed',
+                    headerClass: 'bg-gradient-to-r from-orange-500 to-red-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Speed Reading</h3>
+                                <p class="text-gray-600 text-sm mb-3">Techniques to read faster with comprehension</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">10 techniques</span>
+                                    <i class="fas fa-tachometer-alt text-orange-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'writing-practice': {
+                    title: 'Writing Practice',
+                    subtitle: 'Develop your writing skills',
+                    headerClass: 'bg-gradient-to-r from-purple-500 to-pink-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Essay Writing</h3>
+                                <p class="text-gray-600 text-sm mb-3">Learn to write effective essays</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full">12 templates</span>
+                                    <i class="fas fa-pen text-purple-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'grammar-notes': {
+                    title: 'Grammar Notes',
+                    subtitle: 'Your saved grammar references',
+                    headerClass: 'bg-gradient-to-r from-indigo-600 to-purple-700',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Conditionals</h3>
+                                <p class="text-gray-600 text-sm mb-3">If clauses and conditional sentences</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">Saved 2 days ago</span>
+                                    <i class="fas fa-bookmark text-indigo-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'vocab-notes': {
+                    title: 'Vocabulary Notes',
+                    subtitle: 'Your saved words and phrases',
+                    headerClass: 'bg-gradient-to-r from-pink-500 to-rose-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Advanced Adjectives</h3>
+                                <p class="text-gray-600 text-sm mb-3">25 sophisticated adjectives for writing</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded-full">25 words</span>
+                                    <i class="fas fa-star text-pink-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'exam-notes': {
+                    title: 'Exam Notes',
+                    subtitle: 'IELTS preparation notes',
+                    headerClass: 'bg-gradient-to-r from-cyan-500 to-blue-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Task 2 Templates</h3>
+                                <p class="text-gray-600 text-sm mb-3">Essay structures for different question types</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-cyan-100 text-cyan-600 px-2 py-1 rounded-full">5 templates</span>
+                                    <i class="fas fa-file-alt text-cyan-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'flashcards': {
+                    title: 'Flashcards',
+                    subtitle: 'Quick review cards',
+                    headerClass: 'bg-gradient-to-r from-green-500 to-emerald-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Irregular Verbs</h3>
+                                <p class="text-gray-600 text-sm mb-3">Common irregular verb forms</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">50 cards</span>
+                                    <i class="fas fa-clone text-green-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'app-features': {
+                    title: 'App Features',
+                    subtitle: 'Discover what English Hero offers',
+                    headerClass: 'bg-gradient-to-r from-blue-600 to-indigo-600',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">🎯 Personalized Learning</h3>
+                                <p class="text-gray-600 text-sm">Adaptive content based on your progress and skill level</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">📚 Comprehensive Content</h3>
+                                <p class="text-gray-600 text-sm">Grammar, vocabulary, IELTS prep, and practice tests</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">⭐ Progress Tracking</h3>
+                                <p class="text-gray-600 text-sm">Monitor your learning journey with detailed analytics</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'help-support': {
+                    title: 'Help & Support',
+                    subtitle: 'Get assistance when you need it',
+                    headerClass: 'bg-gradient-to-r from-orange-500 to-red-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">📖 User Guide</h3>
+                                <p class="text-gray-600 text-sm mb-3">Complete guide on how to use the app</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">Getting started</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">❓ FAQ</h3>
+                                <p class="text-gray-600 text-sm mb-3">Frequently asked questions</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">20+ questions</span>
+                                    <i class="fas fa-chevron-right text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'settings': {
+                    title: 'Settings',
+                    subtitle: 'Customize your experience',
+                    headerClass: 'bg-gradient-to-r from-purple-500 to-pink-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Notifications</h3>
+                                        <p class="text-gray-600 text-sm">Daily reminders and updates</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" value="" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Dark Mode</h3>
+                                        <p class="text-gray-600 text-sm">Switch to dark theme</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'about-us': {
+                    title: 'About Us',
+                    subtitle: 'Meet the team behind English Hero',
+                    headerClass: 'bg-gradient-to-r from-green-500 to-teal-500',
+                    content: `
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm border text-center">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-heart text-green-500 text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Our Mission</h3>
+                                <p class="text-gray-600 text-sm">To make English learning accessible, engaging, and effective for learners worldwide through innovative technology and comprehensive content.</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-xl p-4 shadow-sm border">
+                                <h3 class="font-semibold text-gray-800 mb-2">Contact Us</h3>
+                                <p class="text-gray-600 text-sm mb-2">📧 support@englishhero.app</p>
+                                <p class="text-gray-600 text-sm">🌐 www.englishhero.app</p>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            return categoryMap[categoryName] || {
+                title: 'Coming Soon',
+                subtitle: 'This content is being prepared',
+                headerClass: 'bg-gradient-to-r from-gray-500 to-gray-600',
+                content: '<div class="text-center py-8"><p class="text-gray-500">Content coming soon...</p></div>'
+            };
+        }
+
+        // =================================================================================
+        // INITIALIZATION AND EVENT LISTENERS
+        // Set up the app when the page loads
+        // =================================================================================
+
+        /**
+         * Initialize the app when DOM is fully loaded
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animations to category cards
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.category-card');
+                cards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+            
+            // Add touch feedback for mobile devices
+            if ('ontouchstart' in window) {
+                document.addEventListener('touchstart', function() {}, { passive: true });
+            }
+        });
+
+        // =================================================================================
+        // UTILITY FUNCTIONS
+        // Helper functions for enhanced user experience
+        // =================================================================================
+
+        /**
+         * Add haptic feedback for supported devices
+         */
+        function addHapticFeedback() {
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+
+        // Add haptic feedback to category cards and navigation
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.category-card') || e.target.closest('.nav-item')) {
+                addHapticFeedback();
+            }
+        });
+
+        /**
+         * Handle back button behavior for mobile browsers
+         */
+        window.addEventListener('popstate', function(e) {
+            if (currentCategory) {
+                backToSection();
+            }
+        });
+
+        // Push state when opening category for proper back button handling
+        function pushCategoryState(categoryName) {
+            history.pushState({ category: categoryName }, '', `#${categoryName}`);
+        }
+
+        // =================================================================================
+        // RESPONSIVE ENHANCEMENTS
+        // Additional features for better mobile experience
+        // =================================================================================
+
+        /**
+         * Handle orientation changes on mobile devices
+         */
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Refresh layout after orientation change
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+
+        /**
+         * Prevent zoom on double tap for iOS devices
+         */
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Add loading states for better perceived performance
+        function showLoadingState() {
+            // Add subtle loading animation when switching sections
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.className = 'fixed inset-0 bg-white/80 flex items-center justify-center z-50';
+            loadingOverlay.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-indigo-600"></div>
+                    <span class="text-sm text-gray-600">Loading...</span>
+                </div>
+            `;
+            document.body.appendChild(loadingOverlay);
+            
+            setTimeout(() => {
+                document.body.removeChild(loadingOverlay);
+            }, 300);
+        }
+
+        /**
+         * Add pull-to-refresh functionality for mobile
+         */
+        let startY = 0;
+        let currentY = 0;
+        let pullDistance = 0;
+        let isPulling = false;
+
+        document.addEventListener('touchstart', function(e) {
+            if (window.scrollY === 0) {
+                startY = e.touches[0].clientY;
+                isPulling = true;
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+            if (isPulling && window.scrollY === 0) {
+                currentY = e.touches[0].clientY;
+                pullDistance = currentY - startY;
+                
+                if (pullDistance > 0) {
+                    e.preventDefault();
+                    // Add visual feedback for pull-to-refresh
+                    const header = document.querySelector('.bg-gradient-to-r');
+                    if (header && pullDistance > 50) {
+                        header.style.transform = `translateY(${Math.min(pullDistance * 0.3, 30)}px)`;
+                        header.style.transition = 'none';
+                    }
+                }
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', function(e) {
+            if (isPulling) {
+                const header = document.querySelector('.bg-gradient-to-r');
+                if (header) {
+                    header.style.transform = 'translateY(0)';
+                    header.style.transition = 'transform 0.3s ease';
+                }
+                
+                if (pullDistance > 80) {
+                    // Trigger refresh
+                    showLoadingState();
+                    // In a real app, this would refresh content
+                    setTimeout(() => {
+                        console.log('Content refreshed!');
+                    }, 500);
+                }
+                
+                isPulling = false;
+                pullDistance = 0;
+            }
+        });
+
+        /**
+         * Add swipe gestures for navigation between sections
+         */
+        let startX = 0;
+        let startTime = 0;
+        let isHorizontalSwipe = false;
+
+        document.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            startTime = Date.now();
+            isHorizontalSwipe = false;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!isHorizontalSwipe) {
+                const deltaX = Math.abs(e.touches[0].clientX - startX);
+                const deltaY = Math.abs(e.touches[0].clientY - (e.touches[0].clientY || 0));
+                
+                if (deltaX > deltaY && deltaX > 30) {
+                    isHorizontalSwipe = true;
+                }
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            if (isHorizontalSwipe) {
+                const endX = e.changedTouches[0].clientX;
+                const deltaX = endX - startX;
+                const deltaTime = Date.now() - startTime;
+                
+                // Only trigger if it's a quick swipe
+                if (Math.abs(deltaX) > 50 && deltaTime < 300) {
+                    const sections = ['home', 'task', 'note', 'about'];
+                    const currentIndex = sections.indexOf(currentSection);
+                    
+                    if (deltaX > 0 && currentIndex > 0) {
+                        // Swipe right - go to previous section
+                        switchSection(sections[currentIndex - 1]);
+                    } else if (deltaX < 0 && currentIndex < sections.length - 1) {
+                        // Swipe left - go to next section
+                        switchSection(sections[currentIndex + 1]);
+                    }
+                }
+            }
+        }, { passive: true });
+
+        /**
+         * Add keyboard navigation support
+         */
+        document.addEventListener('keydown', function(e) {
+            // Arrow key navigation
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const sections = ['home', 'task', 'note', 'about'];
+                const currentIndex = sections.indexOf(currentSection);
+                
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    switchSection(sections[currentIndex - 1]);
+                } else if (e.key === 'ArrowRight' && currentIndex < sections.length - 1) {
+                    switchSection(sections[currentIndex + 1]);
+                }
+            }
+            
+            // ESC key to go back
+            if (e.key === 'Escape' && currentCategory) {
+                backToSection();
+            }
+        });
+
+        /**
+         * Performance optimization: Lazy load images
+         */
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        /**
+         * Add smooth scroll behavior for better user experience
+         */
+        function smoothScrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize lazy loading when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', lazyLoadImages);
+        } else {
+            lazyLoadImages();
+        }
+
+        // =================================================================================
+        // ACCESSIBILITY ENHANCEMENTS
+        // Make the app more accessible for all users
+        // =================================================================================
+
+        /**
+         * Add focus management for keyboard navigation
+         */
+        function manageFocus() {
+            // Ensure proper focus order
+            const focusableElements = document.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            
+            focusableElements.forEach((element, index) => {
+                element.setAttribute('tabindex', index + 1);
+            });
+        }
+
+        /**
+         * Add ARIA labels and roles for screen readers
+         */
+        function enhanceAccessibility() {
+            // Add role and aria-label to navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.setAttribute('role', 'tab');
+                const sectionName = item.dataset.section;
+                item.setAttribute('aria-label', `Navigate to ${sectionName} section`);
+            });
+
+            // Add role to category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                
+                // Add keyboard event handlers
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+            });
+        }
+
+        // Initialize accessibility features
+        document.addEventListener('DOMContentLoaded', function() {
+            manageFocus();
+            enhanceAccessibility();
+        });
+
+        /**
+         * Add reduced motion support for users who prefer it
+         */
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            // Disable animations for users who prefer reduced motion
+            const style = document.createElement('style');
+            style.textContent = `
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // =================================================================================
+        // ERROR HANDLING AND FALLBACKS
+        // Ensure the app works even when things go wrong
+        // =================================================================================
+
+        /**
+         * Global error handler
+         */
+        window.addEventListener('error', function(e) {
+            console.error('English Hero App Error:', e.error);
+            
+            // Show user-friendly error message
+            const errorToast = document.createElement('div');
+            errorToast.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            errorToast.textContent = 'Something went wrong. Please try again.';
+            
+            document.body.appendChild(errorToast);
+            
+            setTimeout(() => {
+                if (document.body.contains(errorToast)) {
+                    document.body.removeChild(errorToast);
+                }
+            }, 3000);
+        });
+
+        /**
+         * Network connectivity detection
+         */
+        function handleConnectivityChange() {
+            const isOnline = navigator.onLine;
+            const statusIndicator = document.createElement('div');
+            statusIndicator.className = `fixed top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow-lg z-50 ${
+                isOnline ? 'bg-green-500' : 'bg-red-500'
+            } text-white`;
+            statusIndicator.textContent = isOnline ? 'Connection restored' : 'No internet connection';
+            
+            document.body.appendChild(statusIndicator);
+            
+            setTimeout(() => {
+                if (document.body.contains(statusIndicator)) {
+                    document.body.removeChild(statusIndicator);
+                }
+            }, 3000);
+        }
+
+        window.addEventListener('online', handleConnectivityChange);
+        window.addEventListener('offline', handleConnectivityChange);
+
+        // =================================================================================
+        // FINAL INITIALIZATION
+        // Complete app setup
+        // =================================================================================
+
+        console.log('🎉 English Hero App Loaded Successfully!');
+        console.log('📱 Ready for Android WebView integration');
+        console.log('✨ Features: Smooth animations, responsive design, accessibility support');
+        
+        // Add app ready event for WebView integration
+        window.dispatchEvent(new CustomEvent('englishHeroReady', {
+            detail: {
+                version: '1.0.0',
+                features: ['navigation', 'categories', 'animations', 'accessibility']
+            }
+        }));
+
+    </script>
+</body>
+</html>
